@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.top-bar {
+  background: #222;
+
+  .name h1 a {
+    color: #fff;
+  }
+
+  .top-bar-section.row {
+    .columns {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+#sky {
+  background: #2c4859;
+
+  #pousse {
+    * {
+      fill: #181818 !important;
+    }
+  }
+
+  #moon, .star {
+    display: block;
+  }
+
+  #sun {
+    display: none;
+  }
+
+  .white-cloud,
+  .grey-cloud {
+    * {
+      fill: #181818 !important;
+    }
+  }
+
+}
+
+nav.ground {
+  background: #584026;
+}

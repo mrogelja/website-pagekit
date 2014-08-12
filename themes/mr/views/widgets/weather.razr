@@ -1,0 +1,24 @@
+@($weather.id)
+
+@if( $weather.id > 800 and $weather.id < 803 )
+  @include('theme://mr/templates/svg/sun.svg.razr')
+@endif
+
+@include('theme://mr/templates/svg/moon.svg.razr')
+
+@foreach(  range(0, rand(0, 30)) as $i )
+    @include('theme://mr/templates/svg/star.svg.razr', [
+        'x' => rand(0, 100),
+        'y' => rand(0, 70),
+        'scale' => rand(0, 60) / 100 ,
+        'rotate' => rand(0, 90)]
+    )
+@endforeach
+
+@if( ($weather.id > 801 and $weather.id < 804) or $weather.id < 800)
+    @include('theme://mr/templates/svg/white_cloud.svg.razr')
+@endif
+
+@if( $weather.id < 800 )
+    @include('theme://mr/templates/svg/grey_cloud.svg.razr')
+@endif

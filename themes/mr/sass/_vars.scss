@@ -1,0 +1,81 @@
+@import "foundation/functions";
+
+$rem-base: 16px;
+
+//We use these to control various global styles
+$body-bg: #fff;
+$body-font-color: #222;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-weight: normal;
+$body-font-style: normal;
+
+//We use this to control font-smoothing
+$font-smoothing: antialiased;
+
+//We use these to control text direction settings
+$text-direction: ltr;
+$opposite-direction: right;
+$default-float: left;
+
+//We use these as default colors throughout
+$primary-color: #008CBA;
+$secondary-color: #e7e7e7;
+$alert-color: #f04124;
+$success-color: #43AC6A;
+$warning-color: #f08a24;
+$info-color: #a0d3e8;
+
+/* Background color for the top bar */
+$topbar-bg: #fff;
+$topbar-bg-color: #444;
+
+/* Height and margin */
+$topbar-height: 90px;
+$topbar-margin-bottom: 0;
+
+/* Control Input height for top bar */
+$topbar-input-height: 2.45em;
+
+/* Controlling the styles for the title in the top bar */
+$topbar-title-weight: bold;
+$topbar-title-font-size: rem-calc(35);
+
+/* Style the top bar dropdown elements */
+$topbar-dropdown-bg: #222;
+$topbar-dropdown-link-color: #111;
+$topbar-dropdown-link-bg: #333;
+$topbar-dropdown-toggle-size: 5px;
+$topbar-dropdown-toggle-color: #111;
+$topbar-dropdown-toggle-alpha: 0.5;
+
+/* Set the link colors and styles for top-level nav */
+$topbar-link-color: #666;
+$topbar-link-color-hover: #111;
+$topbar-link-color-active: #111;
+$topbar-link-weight: normal;
+$topbar-link-font-size: rem-calc(20);
+$topbar-link-hover-lightness: -10%; // Darken by 10%
+$topbar-link-bg-hover: #fff  ;
+$topbar-link-bg-active: #fff;
+$topbar-link-bg-active-hover: #fff;
+$topbar-link-font-family: $body-font-family;
+
+$topbar-dropdown-label-color: #555;
+$topbar-dropdown-label-text-transform: uppercase;
+$topbar-dropdown-label-font-weight: bold;
+$topbar-dropdown-label-font-size: rem-calc(10);
+
+/* Top menu icon styles */
+$topbar-menu-link-transform: uppercase;
+$topbar-menu-link-font-size: rem-calc(20);
+$topbar-menu-link-weight: bold;
+$topbar-menu-link-color: #111;
+$topbar-menu-icon-color: #111;
+$topbar-menu-link-color-toggled: #888;
+$topbar-menu-icon-color-toggled: #888;
+
+/* Divider Styles */
+$topbar-divider-border-bottom: solid 1px  scale-color($topbar-bg-color, $lightness: 13%);
+$topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%);
+
+$progress-bar-border-size: 0px;

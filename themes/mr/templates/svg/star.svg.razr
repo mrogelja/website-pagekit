@@ -1,0 +1,11 @@
+<svg class="star"
+     style="left: {{ x }}%; top:{{ y }}%; transform: scale({{ scale }}, {{ scale }}) rotate({{ rotate }}deg); -webkit-transform: scale({{ scale }}, {{ scale }}) rotate({{ rotate }}deg); -moz-transform: scale({{ scale }}, {{ scale }}) rotate({{ rotate }}deg)"
+     width="57.899px" height="52.868px" viewBox="0 0 57.899 52.868" style="enable-background:new 0 0 57.899 52.868;">
+    <style>
+
+    </style>
+    <g>
+        <polygon style="fill:#FFF4A6;" points="45.031,51.046 29.426,33.998 16.081,52.868 22.753,30.622 0,28.256 22.277,23.058
+		12.87,1.822 28.473,18.871 41.818,0 35.147,22.247 57.899,24.612 35.622,29.812 	"/>
+    </g>
+</svg>

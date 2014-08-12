@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+@import "compass/css3";
+@import "vars";
+
+body {
+  position: relative;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+.top-bar {
+  .name h1 a {
+    color: #444;
+  }
+
+  .top-bar-section.row {
+    .columns {
+      text-align: center;
+      a {
+        color: $topbar-link-color;
+        font-size: $topbar-link-font-size;
+      }
+    }
+  }
+}
+
+#sky {
+  position: relative;
+  background: #96EBFF;
+  height: 260px;
+
+  body.profile & {
+    height: 500px;
+  }
+
+  h1, h2 {
+    margin: 0;
+    padding-left: 100px;
+    padding-top: 40px;
+    font-size: 5em;
+    color: white;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 2em;
+    padding-top: 0px;
+  }
+
+  svg {
+    position: absolute;
+  }
+
+  #pousse {
+    bottom: 0;
+    left: 80%;
+
+    body.profile & {
+      left: 10%;
+    }
+
+  }
+
+  #sun, .white-cloud, #moon {
+    top: 50px;
+    right: 25%;
+  }
+
+  .grey-cloud {
+    @include scale(1.1);
+    top: 75px;
+  }
+
+  #moon, .star {
+    display: none;
+  }
+
+}
+
+nav.ground {
+  height: 90px;
+  background: #A66C33;
+}
+
+section {
+  padding: 20px 0;
+}
+
+.experiences {
+  $bg-color: #fff;
+  $font-color: rgb(166, 131, 51);
+  $reverse-font-color: #BFAE88;
+
+  background: $bg-color;
+  color: $font-color;
+
+  .timeline {
+    $mark-radius: 20px;
+    $mark-border-size: 4px;
+    $timeline-width: 4px;
+
+    position: relative;
+    margin-top: 30px;
+
+    li {
+      position: relative;
+      margin-left: 100px ! important;
+      border-left: $timeline-width solid $reverse-font-color;
+      padding-bottom: 30px;
+
+      .mark, .content {
+        float: left;
+        margin-top: -15px;
+      }
+
+      .content {
+        .title {
+          position: relative;
+        }
+      }
+
+      .year {
+        position: absolute;
+        left: -110px;
+        font-size: 20px;
+      }
+
+      .mark {
+        border: $mark-border-size solid #ddd;
+        border-radius: $mark-radius;
+        position: relative;
+        text-align: center;
+        line-height: $mark-radius;
+        margin-left: - ($mark-radius/2 + $mark-border-size + $timeline-width/2);
+        margin-right: 20px;
+        font-size: 20px;
+        color: $reverse-font-color;
+
+        &:before {
+          margin: 0;
+        }
+      }
+
+      &.school {
+        $school-color: #71A6B3;
+
+        padding-top: 50px;
+        border-color: $school-color;
+        .mark {
+          color: $school-color;
+        }
+      }
+
+      &:first-of-type {
+        $first-color: #FFCD9C;
+
+        padding: 50px 0;
+        border-left-style: dotted;
+        border-color: $first-color;
+        .mark {
+          color: $first-color;
+        }
+      }
+
+      &:last-of-type {
+        $last-color: #ccc;
+
+        padding-top: 86px;
+        border-left-style: dotted;
+
+        border-color: $last-color;
+        .mark {
+          color: $last-color;
+        }
+      }
+    }
+  }
+}
+
+.skills {
+  background: #A6B9FC;
+
+  &, h2, h3 {
+    color: #fff;
+  }
+
+  .skill {
+    margin: 10px 0;
+
+    h3, .progress {
+      margin-left: 50px;
+    }
+
+    .symbol {
+      float: left;
+      text-align: center;
+      .icon {
+        font-size: 2rem;
+
+        &.icon-svn {
+          font-size: 1.5rem;
+        }
+
+        &.icon-symfony,
+        &.icon-code,
+        &.icon-mysql,
+        &.icon-mongo,
+        &.icon-doctrine,
+        &.icon-propel {
+          font-size: 1.8rem;
+        }
+
+        &.icon-css,
+        &.icon-python,
+        &.icon-cplusplus {
+          font-size: 1.7rem;
+        }
+
+        &.icon-php {
+          font-size: 2.1rem;
+        }
+      }
+    }
+
+    .progress {
+      background: transparent;
+      padding: 0;
+      line-height: 1.5625rem;
+      font-size: .9rem;
+      height: auto;
+
+      .meter {
+        @include single-transition(width 1s);
+        padding-left: 15px;
+        background: #8D97BD;
+
+        &.minify {
+          width: 25% !important;
+        }
+      }
+    }
+  }
+}
+
+.hobbies {
+  .hobby {
+    margin: 20px 0;
+    text-align: center;
+
+    .icon {
+      font-size: 6rem;
+
+      &.icon-savoie {
+        font-size: 7rem;
+      }
+    }
+  }
+}
+
+body.blog {
+  .post {
+    margin-bottom: 60px;
+    background: #f7f7f7;
+    padding: 20px;
+
+    header {
+      .date {
+        color: #5a5a5a;
+        .day {
+          font-size: 2.5em;
+          line-height: 1em;
+        }
+
+        .month {
+          font-size: 1.7em;
+          margin-top: -0.5em;
+        }
+      }
+
+      margin-bottom: 20px;
+    }
+
+    .body {
+      .thumb {
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

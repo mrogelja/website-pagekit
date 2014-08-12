@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @section('head')
+        @style('mr', 'theme://mr/css/mr.css') 
+        @style('uikit', 'theme://mr/css/uikit.css')       
+        @script('jquery')
+        @script('uikit')
+    </head>
+    <body>
+        @if (hasSection('logo'))
+            <div class="tm-logo uk-hidden-small">
+                <a href="@url()" class="tm-brand">@section('logo', ['renderer' => 'blank'])</a>
+            </div>
+        @endif
+
+        @if (hasSection('navbar'))
+        <div class="tm-navbar">
+
+            <nav class="uk-navbar uk-hidden-small">
+                @section('navbar', ['renderer' => 'navbar'])
+            </nav>
+
+            @if (hasSection('offcanvas'))
+            <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+            @endif
+
+            @if (hasSection('logo-small'))
+            <div class="uk-navbar-content uk-navbar-center uk-visible-small">
+                <a href="@url()" class="tm-brand">@section('logo-small', ['renderer' => 'blank'])</a>
+            </div>
+            @endif
+
+        </div>
+        @endif
+
+
+        <header id="sky">
+            @include('theme://mr/templates/svg/pousse.s1.svg.razr')
+
+            @if (hasSection('sky'))
+               @section('sky', ['renderer' => 'blank'])
+            @endif
+        </header>
+
+
+        <nav class="ground">
+
+        </nav>
+
+        <section id="main">
+            @section('content')
+        </section> 
+
+        <footer>
+           @section('footer')
+        </footer>       
+    </body>
+</html>
