@@ -1,5 +1,3 @@
-@($weather.id)
-
 @if( $weather.id > 800 and $weather.id < 803 )
   @include('theme://mr/templates/svg/sun.svg.razr')
 @endif

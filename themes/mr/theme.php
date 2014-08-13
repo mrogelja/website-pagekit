@@ -22,6 +22,7 @@ return [
     // renderers define the markup that is rendered in widget positions
     'renderer' => [
         'blank'     => 'theme://mr/views/renderer/position.blank.razr',
+        'navbar'    => 'theme://alpha/views/renderer/position.navbar.razr',
         // ...
     ],
 

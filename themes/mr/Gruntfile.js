@@ -61,6 +61,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-banner");
 
-    grunt.registerTask("build", ["compass", "less"]);
+    grunt.registerTask("build", ["less"]);
     grunt.registerTask("default", ["build"]);
 };

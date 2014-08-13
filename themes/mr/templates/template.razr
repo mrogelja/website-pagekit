@@ -5,37 +5,50 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @section('head')
-        @style('mr', 'theme://mr/css/mr.css') 
-        @style('uikit', 'theme://mr/css/uikit.css')       
+
+        @style('uikit', 'theme://mr/css/uikit.css')
         @script('jquery')
         @script('uikit')
     </head>
-    <body>
+    <body class="profile">
         @if (hasSection('logo'))
             <div class="tm-logo uk-hidden-small">
                 <a href="@url()" class="tm-brand">@section('logo', ['renderer' => 'blank'])</a>
             </div>
         @endif
 
-        @if (hasSection('navbar'))
-        <div class="tm-navbar">
 
-            <nav class="uk-navbar uk-hidden-small">
-                @section('navbar', ['renderer' => 'navbar'])
-            </nav>
-
-            @if (hasSection('offcanvas'))
-            <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
-            @endif
-
-            @if (hasSection('logo-small'))
-            <div class="uk-navbar-content uk-navbar-center uk-visible-small">
-                <a href="@url()" class="tm-brand">@section('logo-small', ['renderer' => 'blank'])</a>
+        <div id="top" class="uk-grid">
+            <div class="uk-width-3-10">
+                <h1>
+                    <a href="@url()">
+                       Mr
+                   </a>
+               </h1>
             </div>
-            @endif
+            <div class="uk-width-7-10">
+                @if (hasSection('navbar'))
+                <div class="tm-navbar">
 
+                    <nav class="uk-navbar uk-hidden-small">
+                        @section('navbar', ['renderer' => 'navbar'])
+                    </nav>
+
+                    @if (hasSection('offcanvas'))
+                    <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+                    @endif
+
+                    @if (hasSection('logo-small'))
+                    <div class="uk-navbar-content uk-navbar-center uk-visible-small">
+                        <a href="@url()" class="tm-brand">@section('logo-small', ['renderer' => 'blank'])</a>
+                    </div>
+                    @endif
+
+                </div>
+                @endif
+            </div>
         </div>
-        @endif
+
 
 
         <header id="sky">
