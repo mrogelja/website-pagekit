@@ -27,7 +27,9 @@ return [
     ],
 
     'resources' => [
-        // your resources here...
+        'override' => [
+            'extension://blog/views/post' => 'views/blog/post'
+        ]
     ],
 
     'settings' => [

@@ -8,6 +8,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: #222;
+  text-rendering: optimizelegibility;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+
+  a {
+    font : inherit;
+  }
+}
+
 #top {
   h1 a {
     font-weight: bold;
@@ -188,7 +203,7 @@ section {
   .skill {
     margin: 10px 0;
 
-    h3, .progress {
+    h3, .uk-progress {
       margin-left: 50px;
     }
 
@@ -223,21 +238,24 @@ section {
       }
     }
 
-    .progress {
+    .uk-progress {
       background: transparent;
       padding: 0;
       line-height: 1.5625rem;
       font-size: .9rem;
       height: auto;
+      margin-top: 0px;
 
-      .meter {
+      .uk-progress-bar {
+        text-align: left;
         transition: width 1s;
+
 
         padding-left: 15px;
         background: #8D97BD;
 
         &.minify {
-          width: 25% !important;
+//          width: 25% !important;
         }
       }
     }
@@ -292,3 +310,5 @@ body.blog {
     }
   }
 }
+
+@import "fontello.less";
