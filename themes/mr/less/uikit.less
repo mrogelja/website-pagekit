@@ -120,7 +120,7 @@ section {
 
     li {
       position: relative;
-      margin-left: 100px ! important;
+      margin-left: 240px ! important;
       border-left: @timeline-width solid @reverse-font-color;
       padding-bottom: 30px;
 
@@ -130,25 +130,24 @@ section {
       }
 
       .content {
-        .title {
-          position: relative;
-        }
+        margin-left: 20px;
       }
 
       .year {
         position: absolute;
-        left: -110px;
+        left: -280px;
         font-size: 20px;
+        text-align: right;
+        width: 250px;
       }
 
       .mark {
         border: @mark-border-size solid #ddd;
         border-radius: @mark-radius;
-        position: relative;
+        position: absolute;
         text-align: center;
         line-height: @mark-radius;
-        margin-left: - (@mark-radius/2 + @mark-border-size + @timeline-width/2);
-        margin-right: 20px;
+        left: -(@mark-radius/2 + @mark-border-size + @timeline-width/2);
         font-size: 20px;
         color: @reverse-font-color;
 
@@ -249,14 +248,19 @@ section {
       .uk-progress-bar {
         text-align: left;
         transition: width 1s;
-
+        white-space: nowrap;
 
         padding-left: 15px;
         background: #8D97BD;
 
-        &.minify {
-//          width: 25% !important;
+        .skill-meter-loop(@i) when (@i > 0) {
+          .skill-meter-loop((@i - 10));
+          &.expand-@{i} {
+            width: @i * 1%;
+          }
         }
+
+        .skill-meter-loop(100);
       }
     }
   }
@@ -310,5 +314,17 @@ body.blog {
     }
   }
 }
+
+
+footer{
+  display: block;
+  min-height: 200px;
+  background: #444;
+
+  &, a{
+    color: #fff;
+  }
+}
+
 
 @import "fontello.less";
