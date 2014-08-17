@@ -1,0 +1,8 @@
+<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon">
+    <li class="uk-nav-header">@trans('Hi') @( $user.username )</li>
+    <li>
+        <a href="@url('@system/auth/logout', ['redirect' => $redirect])">
+            @trans('Logout')
+        </a>
+    </li>
+</ul>

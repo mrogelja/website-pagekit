@@ -16,6 +16,7 @@ return [
         'sky'          => 'Sky',
         'navbar'       => 'Navbar',
         'footer'       => 'Footer',
+        'offcanvas'    => 'Offcanvas'
         // ...
     ],
 
@@ -23,13 +24,15 @@ return [
     'renderer' => [
         'blank'     => 'theme://mr/views/renderer/position.blank.razr',
         'navbar'    => 'theme://mr/views/renderer/position.navbar.razr',
-        'subnav'    => 'theme://mr/views/renderer/position.subnav.razr'
+        'subnav'    => 'theme://mr/views/renderer/position.subnav.razr',
+        'offcanvas' => 'theme://mr/views/renderer/position.offcanvas.razr',
         // ...
     ],
 
     'resources' => [
         'override' => [
-            'extension://blog/views/post' => 'views/blog/post'
+            'extension://blog/views/post' => 'views/blog/post',
+            'extension://system/views/widgets/login' => 'views/widgets/login'
         ]
     ],
 
