@@ -9,7 +9,10 @@ module.exports = function(grunt) {
 
         less: {
             theme: {
-                options: { cleancss: true },
+                options: {
+                    cleancss: false,
+                    compress: false
+                },
                 files: { 
                     "css/uikit.css": "less/uikit.less"
                 }

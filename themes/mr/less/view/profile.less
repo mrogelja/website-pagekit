@@ -1,0 +1,178 @@
+.experiences {
+  @bg-color: #fff;
+  @font-color: rgb(166, 131, 51);
+  @reverse-font-color: #BFAE88;
+
+  background: @bg-color;
+  color: @font-color;
+
+  .timeline {
+    @mark-radius: 20px;
+    @mark-border-size: 4px;
+    @timeline-width: 4px;
+
+    position: relative;
+    margin-top: 30px;
+
+    li {
+      position: relative;
+      margin-left: 240px ! important;
+      border-left: @timeline-width solid @reverse-font-color;
+      padding-bottom: 30px;
+
+      .mark, .content {
+        float: left;
+        margin-top: -15px;
+      }
+
+      .content {
+        margin-left: 20px;
+      }
+
+      .year {
+        position: absolute;
+        left: -280px;
+        font-size: 20px;
+        text-align: right;
+        width: 250px;
+      }
+
+      .mark {
+        border: @mark-border-size solid #ddd;
+        border-radius: @mark-radius;
+        position: absolute;
+        text-align: center;
+        line-height: @mark-radius;
+        left: -(@mark-radius/2 + @mark-border-size + @timeline-width/2);
+        font-size: 20px;
+        color: @reverse-font-color;
+
+        &:before {
+          margin: 0;
+        }
+      }
+
+      &.school {
+        @school-color: #71A6B3;
+
+        padding-top: 50px;
+        border-color: @school-color;
+        .mark {
+          color: @school-color;
+        }
+      }
+
+      &:first-of-type {
+        @first-color: #FFCD9C;
+
+        padding: 50px 0;
+        border-left-style: dotted;
+        border-color: @first-color;
+        .mark {
+          color: @first-color;
+        }
+      }
+
+      &:last-of-type {
+        @last-color: #ccc;
+
+        padding-top: 86px;
+        border-left-style: dotted;
+
+        border-color: @last-color;
+        .mark {
+          color: @last-color;
+        }
+      }
+    }
+  }
+}
+
+.skills {
+  background: #A6B9FC;
+
+  &, h2, h3 {
+    color: #fff;
+  }
+
+  .skill {
+    margin: 10px 0;
+
+    h3, .uk-progress {
+      margin-left: 50px;
+    }
+
+    .symbol {
+      float: left;
+      text-align: center;
+      .icon {
+        font-size: 2rem;
+
+        &.icon-svn {
+          font-size: 1.5rem;
+        }
+
+        &.icon-symfony,
+        &.icon-code,
+        &.icon-mysql,
+        &.icon-mongo,
+        &.icon-doctrine,
+        &.icon-propel {
+          font-size: 1.8rem;
+        }
+
+        &.icon-css,
+        &.icon-python,
+        &.icon-cplusplus {
+          font-size: 1.7rem;
+        }
+
+        &.icon-php {
+          font-size: 2.1rem;
+        }
+      }
+    }
+
+    .uk-progress {
+      background: transparent;
+      padding: 0;
+      line-height: 1.5625rem;
+      font-size: .9rem;
+      height: auto;
+      margin-top: 0px;
+
+      .uk-progress-bar {
+        text-align: left;
+        transition: width 1s;
+        white-space: nowrap;
+
+        padding-left: 15px;
+        background: #8D97BD;
+
+        .skill-meter-loop(@i) when (@i > 0) {
+          .skill-meter-loop((@i - 10));
+          &.expand-@{i} {
+            width: @i * 1%;
+          }
+        }
+
+        .skill-meter-loop(100);
+      }
+    }
+  }
+}
+
+.hobbies {
+  .hobby {
+    margin: 20px 0;
+    text-align: center;
+
+    .icon {
+      font-size: 6rem;
+
+      &.icon-savoie {
+        font-size: 7rem;
+      }
+    }
+  }
+}

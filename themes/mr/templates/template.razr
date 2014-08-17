@@ -80,8 +80,10 @@
         </section> 
 
         <footer>
-            <div class="uk-container uk-container-center">
-                @section('footer')
+            <div class="uk-container uk-container-center uk-text-center">
+                @if (hasSection('footer'))
+                    @section('footer', ['renderer' => 'subnav'], ['classes' => 'uk-subnav-line' ])
+                @endif
             </div>
         </footer>
     </body>
