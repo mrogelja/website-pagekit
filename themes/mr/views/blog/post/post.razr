@@ -1,13 +1,17 @@
-<div class="uk-container uk-container-center">
+<div class="blog-post uk-container uk-container-center">
     <article class="uk-article">
 
         <h1 class="uk-article-title">@( $post.title )</h1>
 
         <div>@raw( $post.content )</div>
 
-        @if ($post.isCommentable || $post.commentCount)
-        @include('extension://blog/views/comment/comments.razr')
-        @endif
+
+        <div class="comments uk-panel uk-panel-box uk-panel-box-secondary">
+            @if ($post.isCommentable || $post.commentCount)
+            @include('extension://blog/views/comment/comments.razr')
+            @endif
+        </div>
+
 
     </article>
 </div>
