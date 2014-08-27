@@ -28,6 +28,11 @@ class Extension implements \ArrayAccess
     protected $config;
 
     /**
+     * @var array
+     */
+    protected $parameters = [];
+
+    /**
      * @var \ReflectionObject
      */
     protected $reflected;
@@ -54,6 +59,17 @@ class Extension implements \ArrayAccess
         $this->registerControllers($app['controllers']);
         $this->registerLanguages($app['translator']);
         $this->registerResources($app['locator']);
+
+        if ($this->getConfig('parameters.settings')) {
+
+            if (is_array($defaults = $this->getConfig('parameters.settings.defaults'))) {
+                $this->parameters = array_replace($this->parameters, $defaults);
+            }
+
+            if (is_array($settings = $this['option']->get("{$this->name}:settings"))) {
+                $this->parameters = array_replace($this->parameters, $settings);
+            }
+        }
     }
 
     /**
@@ -73,7 +89,7 @@ class Extension implements \ArrayAccess
     }
 
     /**
-     * Returns the extension's config
+     * Returns the extension's config.
      *
      * @param  mixed $key
      * @param  mixed $default
@@ -86,6 +102,37 @@ class Extension implements \ArrayAccess
         }
 
         $array = $this->config;
+
+        if (isset($array[$key])) {
+            return $array[$key];
+        }
+
+        foreach (explode('.', $key) as $segment) {
+
+            if (!is_array($array) || !array_key_exists($segment, $array)) {
+                return $default;
+            }
+
+            $array = $array[$segment];
+        }
+
+        return $array;
+    }
+
+    /**
+     * Returns the extension's parameters.
+     *
+     * @param  mixed $key
+     * @param  mixed $default
+     * @return array
+     */
+    public function getParams($key = null, $default = null)
+    {
+        if (null === $key) {
+            return $this->parameters;
+        }
+
+        $array = $this->parameters;
 
         if (isset($array[$key])) {
             return $array[$key];
@@ -141,10 +188,10 @@ class Extension implements \ArrayAccess
      */
     public function registerLanguages(Translator $translator)
     {
-        $files = glob($this->getPath().'/languages/*/*.{mo,po,php}', GLOB_BRACE) ?: [];
+        $files = glob($this->getPath().'/languages/*/*') ?: [];
 
         foreach ($files as $file) {
-            if (preg_match('/languages\/(.+)\/(.+)\.(.+)$/', $file, $matches)) {
+            if (preg_match('/languages\/(.+)\/(.+)\.(mo|po|php)$/', $file, $matches)) {
 
                 list(, $locale, $domain, $format) = $matches;
 

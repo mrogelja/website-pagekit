@@ -2,8 +2,21 @@
 
 ### WIP
 
-- Beautified system emails
+- IMPORTANT: Removed 'settings' from extension/theme config, use 'parameters' instead
+- Fixed blog extension settings
+- Fixed blog/page url handling
+- Updated requirejs scripts ordering
+- Removed GLOB_BRACE for Solaris compatiblity
+
+### 0.8.5 (August 22, 2014)
+
+- Added marketplace pagination
+- Added beautified system emails
 - Added admin theme font subset latin, latin-ext
+- Fixed simple plugin regex
+- Fixed gravatar on https
+- Updated UIkit to 2.9
+- Removed username in password reset
 
 ### 0.8.4 (July 25, 2014)
 
@@ -20,5 +33,5 @@
 - Fixed verify mail action
 - Updated mod_rewrite check
 - Updated widgets now rendering themeselves
-- Remove the need for the app root to be writable if the config already exists.
+- Removed that the app root needs to be writable if the config already exists
 - Refactored comments settings in blog

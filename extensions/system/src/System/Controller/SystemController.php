@@ -24,7 +24,7 @@ class SystemController extends Controller
         $packages = [];
 
         foreach ($this['extensions'] as $extension) {
-            if ($extension->getConfig('settings')) {
+            if ($extension->getConfig('parameters.settings.view')) {
                 $packages[$extension->getName()] = $this['extensions']->getRepository()->findPackage($extension->getName());
             }
         }
@@ -42,10 +42,7 @@ class SystemController extends Controller
             return $this->redirect('@system/system/admin');
         }
 
-        $lastLogin = $this['session']->get(ResetPasswordController::RESET_LOGIN);
-        $this['session']->remove(ResetPasswordController::RESET_LOGIN);
-
-        return ['head.title' => __('Login'), 'last_username' => $this['session']->get(Auth::LAST_USERNAME), 'redirect' => $this['request']->get('redirect') ? : $this['url']->route('@system/system/admin', [], true), 'remember_me_param' => RememberMe::REMEMBER_ME_PARAM, 'last_login' => $lastLogin];
+        return ['head.title' => __('Login'), 'last_username' => $this['session']->get(Auth::LAST_USERNAME), 'redirect' => $this['request']->get('redirect') ? : $this['url']->route('@system/system/admin', [], true), 'remember_me_param' => RememberMe::REMEMBER_ME_PARAM];
     }
 
     /**

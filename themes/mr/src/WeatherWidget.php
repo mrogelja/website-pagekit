@@ -2,6 +2,7 @@
 
 namespace MrTheme;
 
+use Buzz\Exception\ClientException;
 use Pagekit\Widget\Model\Type;
 use Pagekit\Widget\Model\WidgetInterface;
 use Endroid\OpenWeatherMap\OpenWeatherMap;
@@ -41,7 +42,11 @@ class WeatherWidget extends Type
     {
         $weather = new OpenWeatherMap("88d7a5ce49c553703a5ae44169b7f490");
 
-        return $this['view']->render('theme://mr/views/widgets/weather.razr', ['weather' => $weather->getWeather('Paris,fr')->weather]);
+        try {
+            return $this['view']->render('theme://mr/views/widgets/weather.razr', ['weather' => $weather->getWeather('Paris,fr')->weather]);
+        } catch(ClientException $e) {
+
+        }
     }
 
     /* Define a form for the Advanced section in the widget admin settings */

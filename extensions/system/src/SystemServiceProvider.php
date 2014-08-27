@@ -118,17 +118,29 @@ class SystemServiceProvider implements ServiceProviderInterface, EventSubscriber
 
     public function onKernelResponse()
     {
-        $scripts = $this->app['view.scripts'];
-        foreach ($scripts as $script) {
+        $require = [];
+        $requeue = [];
 
-            $dependencies = (array) $script['dependencies'];
-
-            if (isset($script['requirejs'])) {
-                $script['dependencies'] = array_merge($dependencies, ['requirejs']);
-            } elseif (in_array('requirejs', $dependencies)) {
-                $scripts->dequeue($name = $script->getName());
-                $scripts->queue($name);
+        foreach ($scripts = $this->app['view.scripts'] as $script) {
+            if ($script['requirejs']) {
+                $require[] = $script;
+            } elseif (array_key_exists('requirejs', $scripts->resolveDependencies($script))) {
+                $requeue[] = $script;
             }
+        }
+
+        if (!$requeue) {
+            return;
+        }
+
+        foreach ($require as $script) {
+            $script['dependencies'] = array_merge((array) $script['dependencies'], ['requirejs']);
+            $scripts->queue($script->getName());
+        }
+
+        foreach ($requeue as $script) {
+            $scripts->dequeue($name = $script->getName());
+            $scripts->queue($name);
         }
     }
 
