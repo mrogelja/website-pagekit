@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+@import "uikit/uikit.less";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+body {
+  font-family: "Lato";
+  font-weight: 400;
+  position: relative;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  font-style: normal;
+  color: #222;
+  text-rendering: optimizelegibility;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+
+  a {
+    font : inherit;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#top {
+  h1 a {
+    font-weight: bold;
+    color: #444;
+    line-height: @navbar-nav-height;
+    padding-left: 40px;
+  }
+
+  nav{
+    a {
+      color: #666;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+#sky {
+  position: relative;
+  background: #96EBFF;
+  height: 260px;
+
+  body.profile & {
+    height: 500px;
+  }
+
+  h1, h2 {
+    margin: 0;
+    padding-left: 100px;
+    padding-top: 40px;
+    font-size: 5em;
+    color: white;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 2em;
+    padding-top: 0px;
+  }
+
+  svg {
+    position: absolute;
+  }
+
+  #pousse {
+    bottom: 0;
+    left: 80%;
+
+    body.profile & {
+      left: 10%;
+    }
+
+  }
+
+  #sun, .white-cloud, #moon {
+    top: 50px;
+    right: 25%;
+  }
+
+  .grey-cloud {
+    tranform : scale(1.1);
+    top: 75px;
+    right: 25%;
+  }
+
+  #moon, .star {
+    display: none;
+  }
+
+}
+
+nav.ground {
+  height: 90px;
+  background: #A66C33;
+}
+
+section {
+  padding: 20px 0;
+}
+
+footer{
+  padding: 70px;
+  display: block;
+  background: #444;
+
+  .uk-subnav > li > a{
+    &, &:hover{
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+@import "fontello.less";
+@import "view/blog.less";
+

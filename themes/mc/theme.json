@@ -1,0 +1,20 @@
+{
+    "name": "mc",
+    "version": "0.0.1",
+    "type": "theme",
+    "title": "Marie-Claire's website theme",
+    "description": "",
+    "license": "",
+    "authors": [
+        {
+            "name": "Mathieu Rogelja",
+            "email": "mathieu.rogelja@gmail.com",
+            "homepage": ""
+        },
+        {
+            "name": "Marie-Claire Sault",
+            "email": "",
+            "homepage": ""
+        }
+    ]
+}
