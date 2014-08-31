@@ -22,10 +22,10 @@ return [
 
     // renderers define the markup that is rendered in widget positions
     'renderer' => [
-        'blank'     => 'theme://mr/views/renderer/position.blank.razr',
-        'navbar'    => 'theme://mr/views/renderer/position.navbar.razr',
-        'subnav'    => 'theme://mr/views/renderer/position.subnav.razr',
-        'offcanvas' => 'theme://mr/views/renderer/position.offcanvas.razr',
+        'blank'     => 'theme://mc/views/renderer/position.blank.razr',
+        'navbar'    => 'theme://mc/views/renderer/position.navbar.razr',
+        'subnav'    => 'theme://mc/views/renderer/position.subnav.razr',
+        'offcanvas' => 'theme://mc/views/renderer/position.offcanvas.razr',
         // ...
     ],
 
@@ -37,7 +37,7 @@ return [
     ],
 
     'settings' => [
-        'system'  => 'theme://mr/views/admin/settings.razr'
+        'system'  => 'theme://mc/views/admin/settings.razr'
     ]
 
 ];
