@@ -107,7 +107,7 @@
   }
 
   .skill {
-    margin: 10px 0;
+    margin: 10px 0 !important;
 
     h3, .uk-progress {
       margin-left: 50px;
@@ -179,8 +179,15 @@
     text-align: center;
 
     .thumb{
-      .icon {
-        font-size: 6rem;
+      svg{
+        display: block;
+        height: 200px;
+        margin: auto;
+
+        * {
+          fill: #5D4D7E !important;
+          stroke: #5D4D7E !important;
+        }
       }
       margin-bottom: 20px;
     }
