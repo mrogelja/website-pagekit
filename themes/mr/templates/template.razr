@@ -17,6 +17,7 @@
             </div>
         @endif
 
+        @set ($user = $app.users.get())
 
         <div id="top" class="uk-grid">
             <div class="uk-width-2-10">
@@ -46,8 +47,6 @@
                         </div>
                     </nav>
 
-
-
                     @if (hasSection('logo-small'))
                     <div class="uk-navbar-content uk-navbar-center uk-visible-small">
                         <a href="@url()" class="tm-brand">@section('logo-small', ['renderer' => 'blank'])</a>
@@ -71,6 +70,14 @@
                     </ul>
                 </div>
                 @section('offcanvas', ['renderer' => 'blank'])
+
+                @if ($user->isAuthenticated())
+                <ul class="uk-nav uk-nav-side uk-nav-offcanvas">
+                    <li>
+                        <a href="@url('@system/system/admin')">Administration</a>
+                    </li>
+                </ul>
+                @endif
             </div>
         </div>
 

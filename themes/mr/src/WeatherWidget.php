@@ -40,13 +40,15 @@ class WeatherWidget extends Type
     /* Rendering the widget. Will usually render a view */
     public function render(WidgetInterface $widget, $options = [])
     {
-        $weather = new OpenWeatherMap("88d7a5ce49c553703a5ae44169b7f490");
+        $weatherMap = new OpenWeatherMap("88d7a5ce49c553703a5ae44169b7f490");
 
         try {
-            return $this['view']->render('theme://mr/views/widgets/weather.razr', ['weather' => $weather->getWeather('Paris,fr')->weather]);
+            $weather = $weatherMap->getWeather('Paris,fr')->weather[0];
         } catch(ClientException $e) {
-
+            $weather = ['id' => 800];
         }
+
+        return $this['view']->render('theme://mr/views/widgets/weather.razr', ['weather' => $weather]);
     }
 
     /* Define a form for the Advanced section in the widget admin settings */
