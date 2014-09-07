@@ -22,6 +22,7 @@ use Pagekit\System\Helper\CountryHelper;
 use Pagekit\System\Helper\DateHelper;
 use Pagekit\System\Helper\LanguageHelper;
 use Pagekit\System\Helper\SystemInfoHelper;
+use Pagekit\System\Helper\OAuthHelper;
 use Pagekit\System\Mail\ImpersonatePlugin;
 use Pagekit\Theme\Event\ThemeListener;
 use Pagekit\Theme\Event\WidgetListener as ThemeWidgetListener;
@@ -109,6 +110,10 @@ class SystemExtension extends Extension
 
         $app['system.info'] = function() {
             return new SystemInfoHelper;
+        };
+
+        $app['oauth'] = function() {
+            return new OAuthHelper();
         };
 
         $app['dates'] = function($app) {
