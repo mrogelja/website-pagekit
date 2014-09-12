@@ -95,6 +95,10 @@
         </nav>
 
         <section id="main">
+            @if (hasSection('main'))
+              @section('main', ['renderer' => 'blank'])
+            @endif
+
             @section('content')
         </section> 
 

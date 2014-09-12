@@ -24,5 +24,9 @@ class MrTheme extends Theme
         $app->on('system.widget', function(RegisterWidgetEvent $event) {
             $event->register(new WeatherWidget);
         });
+
+        $app->on('system.widget', function(RegisterWidgetEvent $event) {
+            $event->register(new BotanicWidget());
+        });
     }
 }

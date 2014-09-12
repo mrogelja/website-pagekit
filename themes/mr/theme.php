@@ -16,7 +16,8 @@ return [
         'sky'          => 'Sky',
         'navbar'       => 'Navbar',
         'footer'       => 'Footer',
-        'offcanvas'    => 'Offcanvas'
+        'offcanvas'    => 'Offcanvas',
+        'main'         => 'Zone Principale'
         // ...
     ],
 

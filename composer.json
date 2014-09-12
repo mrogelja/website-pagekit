@@ -20,6 +20,8 @@
         "mibe/feedwriter": "@dev",
         "nikic/php-parser": "1.*@dev",
         "endroid/openweathermap": "~1.0",
+        "symfony/dom-crawler" : "*",
+        "symfony/css-selector": "*",
         "twig/twig" : "*"
     }
 }
