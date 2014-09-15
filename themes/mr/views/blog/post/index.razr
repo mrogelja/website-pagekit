@@ -1,4 +1,19 @@
 <div class="blog uk-container uk-container-center">
+    <div>
+        <h1>Le blog. <small>Ou tout ce qui m'intéresse et que je veux partager.</small></h1>
+
+        <p>
+            Ce blog est une sorte de feuille de route (roadmap) pour le développement du site lui-même. Tous les articles traitant
+            de sujet technologiques sont ou seront intégrés d'une façon ou d'une autre au site. En parallèle, j'aimerais aussi
+            partager mes découvertes en terme d'écologie et d'agriculture alternatives. Pour certains sujets, je m'évertuerai à
+            faire le lien entre ce qui constitue mes deux activités principales.
+        </p>
+
+        <p>
+            Bonne lecture.
+        </p>
+    </div>
+    <br />
     @foreach ($posts as $post)
     <article class="uk-article" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
 
