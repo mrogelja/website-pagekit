@@ -43,10 +43,11 @@ class BotanicWidget extends Type
     /* Rendering the widget. Will usually render a view */
     public function render(WidgetInterface $widget, $options = [])
     {
+        return;
         $client = new Client([
           'base_url' => 'http://jardinage.comprendrechoisir.com',
           'defaults' => [
-            'proxy' => 'tcp://firewall.ina.fr:81'
+//            'proxy' => 'tcp://firewall.ina.fr:81'
           ]
         ]);
 
@@ -54,7 +55,21 @@ class BotanicWidget extends Type
 
         ksort($list);
 
+        echo json_encode($list); exit;
         return $this['view']->render('theme://mr/views/widgets/botanic.razr', ['data' => $list]);
+    }
+
+    protected function getBotanicSpecs($client, $url)
+    {
+        $r = $client->get($url);
+        $crawler = new Crawler((string)$r->getBody());
+
+        $family = str_replace('Famille : ', '' , $crawler->filter(".fiche_identite_plantes > p:nth-of-type(4)")->text());
+        $semis   = $crawler->filter(".tableau_periodicite > ul > li:first-of-type ._selected1")->extract('_text');
+        return array(
+            'family' => $family,
+            'semis' => $semis
+        );
     }
 
     protected function getBotanicLinks($client, $url = null)
@@ -75,7 +90,7 @@ class BotanicWidget extends Type
         $next = $crawler->filter("#pagination .suivante > a");
 
         foreach ($list as $plant){
-            $plants[$plant[0]] = $plant[1];
+            $plants[$plant[0]] = $this->getBotanicSpecs($client, $plant[1]);
         }
 
         try{
