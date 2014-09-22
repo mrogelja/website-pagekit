@@ -20,3 +20,7 @@
 @if( $weather.id < 800 )
     @include('theme://mr/templates/svg/grey_cloud.svg.razr')
 @endif
+
+@if( $weather.id <= 531  )
+    @include('theme://mr/templates/svg/rain.svg.razr')
+@endif
