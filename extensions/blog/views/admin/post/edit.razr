@@ -21,7 +21,7 @@
             <div class="uk-form-row">
                 <label class="uk-form-label">@trans('Excerpt')</label>
                 <div class="uk-form-controls">
-                    <textarea class="uk-width-1-1" type="text" name="post[excerpt]" placeholder="@trans('Enter Excerpt')" rows="5">@( $post.excerpt )</textarea>
+                    <textarea class="uk-width-1-1" name="post[excerpt]" placeholder="@trans('Enter Excerpt')" rows="5">@( $post.excerpt )</textarea>
                 </div>
             </div>
 
@@ -73,6 +73,25 @@
                     <label for="form-slug" class="uk-form-label">@trans('Slug')</label>
                     <div class="uk-form-controls">
                         <input id="form-slug" class="uk-width-1-1" type="text" name="post[slug]" value="@( $post.slug )">
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <label for="form-thumbnail" class="uk-form-label">@trans('Thumbnail')</label>
+                    <div class="uk-form-controls">
+                        <div id="form-thumbnail" data-goto="finder.image">
+                            @if( $post.thumbnail )
+                                <img src="@( $post.thumbnail )" alt="@( $post.thumbnail_title )"></img>
+                            @else
+                                <div class="js-img-preview pk-thumbnail pk-thumbnail-image" ></div>
+                            @endif
+                        </div>
+
+                        <p class="uk-margin-small-top">
+                            <a data-goto="finder.image">@trans('Select image')</a>
+                        </p>
+
+                        <input type="hidden" name="post[thumbnail]" value="@( $post.thumbnail )">
+                        <input type="hidden" name="post[thumbnail_title]" value="@( $post.thumbnail_title )">
                     </div>
                 </div>
                 <div class="uk-form-row">
