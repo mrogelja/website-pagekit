@@ -35,6 +35,12 @@ class Post
     /** @Column(type="string") */
     protected $slug;
 
+    /** @Column(type="string") */
+    protected $thumbnail;
+
+    /** @Column(type="text") */
+    protected $thumbnail_title;
+
     /** @Column(type="integer") */
     protected $user_id;
 
@@ -106,6 +112,26 @@ class Post
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    public function getThumbnailTitle()
+    {
+        return $this->thumbnail_title;
+    }
+
+    public function setThumbnailTitle($thumbnail_alt)
+    {
+        $this->thumbnail_title = $thumbnail_alt;
     }
 
     public function getUserId()

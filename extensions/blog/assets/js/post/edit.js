@@ -1,4 +1,4 @@
-require(['jquery', 'system!locale', 'uikit!form-select,datepicker,autocomplete,timepicker', 'domReady!'], function($, system, uikit) {
+require(['jquery', 'system!locale,finder,imagepopup', 'uikit!form-select,datepicker,autocomplete,timepicker', 'domReady!'], function($, system, uikit) {
 
     var form = $('#js-post'), id = $('input[name="id"]', form), cancel = $('.js-cancel', form), spinner = $('.js-spinner', form), dirty = false;
 
@@ -54,6 +54,51 @@ require(['jquery', 'system!locale', 'uikit!form-select,datepicker,autocomplete,t
     // markdown handling
     $('input[name="post[data][markdown]"]', form).on('change', function() {
         $('#post-content', form).trigger($(this).prop('checked') ? 'enableMarkdown' : 'disableMarkdown');
+    });
+
+    // thumbnail handling
+    var thumbnailImage = $("#form-thumbnail", form),
+        thumbnailInput = $('input[name="post[thumbnail]"]', form),
+        thumbnailAltInput = $('input[name="post[thumbnail_title]"]', form),
+        rootpath = thumbnailImage.attr('data-rootpath'),
+        ImagePopup = system.imagepopup();
+
+    ImagePopup.init({
+        root: '/' + rootpath
+    });
+
+
+    $('*[data-goto="finder.image"]', form).on('click', function() {
+        var data = {
+                src : thumbnailInput.val(),
+                alt : thumbnailAltInput.val()
+            };
+
+        ImagePopup.handler = function() {
+            var src = ImagePopup.image.val();
+
+            if (src && !src.match(/^(\/|http\:|https\:|ftp\:)/i)) {
+                src = this.base + src;
+            }
+
+            ImagePopup.getPicker().hide();
+            thumbnailImage.html('<img src="' + src + '" alt="' + ImagePopup.title.val() + '">');
+            thumbnailInput.val(src);
+            thumbnailAltInput.val(ImagePopup.title.val());
+        };
+
+        ImagePopup.title.val(data.alt);
+        ImagePopup.image.val(data.src);
+
+        //load finder in image dir
+
+        ImagePopup.updatePreview(ImagePopup.image.val());
+        ImagePopup.goto('settings');
+        ImagePopup.getPicker().show();
+
+        ImagePopup.finder.loadPath(data.src.trim && data.src.indexOf(rootpath) === 0 ? data.src.replace(rootpath, '').split('/').slice(0, -1).join('/') : '');
+
+        setTimeout(function() { ImagePopup.image.focus(); }, 10);
     });
 
 });

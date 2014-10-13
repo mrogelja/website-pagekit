@@ -51,7 +51,7 @@ return [
         }
 
         // skip migrations and return latest version
-        return '0000-00-00_init';
+        return '2014-10-04_add-thumbnail';
     }
 
 ];

@@ -109,7 +109,7 @@ class PostController extends Controller
         $post->set('title', $this->extension->getParams('posts.show_title'));
         $post->set('markdown', $this->extension->getParams('posts.markdown_enabled'));
 
-        return ['head.title' => __('Add Post'), 'post' => $post, 'statuses' => Post::getStatuses(), 'roles' => $this->roles->findAll(), 'users' => $this->users->findAll()];
+        return ['head.title' => __('Add Post'), 'post' => $post, 'statuses' => Post::getStatuses(), 'roles' => $this->roles->findAll(), 'users' => $this->users->findAll(), 'storage_rootpath' => $this['config']->get('app.storage')];
     }
 
     /**
@@ -131,7 +131,7 @@ class PostController extends Controller
             return $this->redirect('@blog/post');
         }
 
-        return ['head.title' => __('Edit Post'), 'post' => $post, 'statuses' => Post::getStatuses(), 'roles' => $this->roles->findAll(), 'users' => $this->users->findAll()];
+        return ['head.title' => __('Edit Post'), 'post' => $post, 'statuses' => Post::getStatuses(), 'roles' => $this->roles->findAll(), 'users' => $this->users->findAll(), 'storage_rootpath' => $this['config']->get('app.storage')];
     }
 
     /**
