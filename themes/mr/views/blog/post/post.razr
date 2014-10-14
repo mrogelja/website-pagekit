@@ -1,17 +1,18 @@
 <div class="blog-post uk-container uk-container-center">
-    <article class="uk-article">
+    <article class="uk-article" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
 
-        <h1 class="uk-article-title">@( $post.title )</h1>
+        <h1 class="uk-article-title">@($post.title)</h1>
+
+        <time datetime="@(date($post.date, 'Y-m-d H:i:s'))">@(date($post.date))</time>
+
+        <img src="@($post.thumbnail)"></img>
+
+        @if ($post.excerpt)
+        <div class="uk-article-lead">
+            @raw($post.excerpt)
+        </div>
+        @endif
 
         <div>@raw( $post.content )</div>
-
-
-        <div class="comments uk-panel uk-panel-box uk-panel-box-secondary">
-            @if ($post.isCommentable || $post.commentCount)
-            @include('extension://blog/views/comment/comments.razr')
-            @endif
-        </div>
-
-
     </article>
 </div>

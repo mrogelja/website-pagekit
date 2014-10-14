@@ -15,30 +15,35 @@
     </div>
     <br />
     @foreach ($posts as $post)
+
+    <div class="uk-text-center separator">
+        <i class="uk-icon-star"></i>
+    </div>
+
     <article class="uk-article" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
 
         <h1 class="uk-article-title"><a href="@url('@blog/id', ['id' => $post.id])">@($post.title)</a></h1>
 
-        @if ($post.excerpt)
-        <div>@raw($post.excerpt)</div>
-        @else
-        <div>@raw($post.content)</div>
+        <time datetime="@(date($post.date, 'Y-m-d H:i:s'))">@(date($post.date))
+        </time>
+
+        <img src="@($post.thumbnail)"></img>
+
+
+        <div class="uk-article-lead">
+            @if ($post.excerpt)
+                @raw($post.excerpt)
+            @else
+                @raw($post.content)
+            @endif
+        </div>
+
+
+        @if ($post.readmore || $post.excerpt)
+        <div class="uk-text-center">
+            <a class="uk-button" href="@url('@blog/id', ['id' => $post.id])">@trans('Continue Reading')</a>
+        </div>
         @endif
-
-        <ul class="uk-subnav uk-subnav-line">
-            @if ($post.readmore || $post.excerpt)
-            <li><a href="@url('@blog/id', ['id' => $post.id])">@trans('Continue Reading') »</a></li>
-            @endif
-
-        </ul>
-
-        <p class="uk-article-meta">
-            @trans('By %name% | %date%', ['%name%' => $post.user.name, '%date%' => '<time datetime="'.date($post.date, 'Y-m-d H:i:s').'">'.date($post.date).'</time>' ])
-            |
-            @if ($post.isCommentable || $post.commentCount)
-            <a href="@url('@blog/id#comments', ['id' => $post.id])">@transchoice('{0} No comments|{1} %num% Comment|]1,Inf[ %num% Comments', $post.commentCount, ['%num%' => $post.commentCount])</a>
-            @endif
-        </p>
     </article>
     @endforeach
 </div>
